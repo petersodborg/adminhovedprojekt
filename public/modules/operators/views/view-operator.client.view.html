@@ -1,0 +1,279 @@
+<section data-ng-controller="OperatorsController" data-ng-init="findOne()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header">
+                <h3>Operatør detaljer</h3>
+            </div>
+            <div class="col-md-4"><!--store kolumme-->
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <h3 data-ng-bind="operator.operatorNavn"></h3>
+                            <p class="lead" data-ng-bind="operator.operatorNavn"></p>
+
+                        </h3>
+                    </div>
+                    <div class="panel-body"><!--panel body start-->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-right" data-ng-show="authentication.user._id == operator.user._id">
+
+
+                        </div>
+
+
+
+                        <strong>Addresse:</strong>
+                        <span data-ng-bind="operator.addresse"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                       <strong>Postnummer:</strong>
+                        <span data-ng-bind="operator.postnr"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>City:</strong>
+                        <span data-ng-bind="operator.city"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>PO:</strong>
+                        <span data-ng-bind="operator.PO"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Land:</strong>
+
+                        <span data-ng-bind="opera.landNavn"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Telefon:</strong>
+                        <span data-ng-bind="operator.telefon"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Email:</strong>
+                        <span data-ng-bind="operator.email"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Web(default):</strong>
+                        <span data-ng-bind="operator.web"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Faktureringskategori:</strong>
+                        <span data-ng-bind="operator.fakturerinsKat"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Pakke:</strong>
+                        <span data-ng-bind="operator.pakke"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Pakke expiry date:</strong>
+                        <span data-ng-bind="operator.pakkeExpiry"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Budgetmax pr. kvartal:</strong>
+                        <span data-ng-bind="operator.budgetMax"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Priotet:</strong>
+                        <span data-ng-bind="operator.priotet"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>MicrositeID:</strong>
+                        <span data-ng-bind="operator.microSiteID"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Beskrivelse:</strong>
+                        <span data-ng-bind="operator.beskrivelse"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong>Engelsk beskrivelse:</strong>
+                        <span data-ng-bind="operator.engelskBeskrivelse"></span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="btn-group">
+
+                            <button class="btn btn-default" type="button">
+                                Se kort
+                            </button>
+
+                                <a class="btn btn-primary" href="/#!/operators/{{operator._id}}/edit" type="button">
+                                    Ret operatør</i>
+                                </a>
+                            <button class="btn btn-default" type="button">
+                                Edit password
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Logo:</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Andet billede:</h3>
+                    </div>
+                </div>
+            </div><!--slut store kolumme-->
+            </div><!--slut panel body-->
+
+
+</div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Produkter/Ydelser
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <a class="btn btn-primary pull-right" type="button" >Tilføj produkt</a>
+
+                                <select class="selectpicker" data-ng-init="find()">
+                                    <option ng-repeat="aktiv in aktiviteter">{{aktiv.Title}}</option>
+                                </select>
+                                                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+<div>
+
+    </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Operatørkategorier
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+
+
+                        <div class="btn-group">
+
+                            <select class="selectpicker" data-ng-init="find()">
+                                <option ng-repeat="operator in operators">{{operator.operaKat}}</option>
+                            </select>
+                        </div>
+
+                        <a class="btn btn-primary pull-right" type="button" >Tilføj kategori</a>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Annoncer i nyhedsbreve
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <a class="btn btn-primary pull-right" type="button" >Tilføj nyhedsbrev</a>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Redaktionelt indhold i nyhedsbreve
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <a class="btn btn-primary pull-right" type="button" >Tilføj nyhedsbrev</a>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Partner link i nyhedsbreve
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <a class="btn btn-primary pull-right" type="button" >Tilføj nyhedsbrev</a>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Måned annoncer statistik
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <select class="selectpicker" data-ng-init="find()">
+                            <option ng-repeat="operator in operators">{{operator.operaKat}}</option>
+                        </select>
+                        <a class="btn btn-primary pull-right" type="button" >Tilføj annonce</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+    <a class="btn btn-primary pull-right" data-ng-click="remove();">
+        Slet operatør
+    </a>
+
+        </div>
+</section>

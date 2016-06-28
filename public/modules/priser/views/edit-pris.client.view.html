@@ -1,0 +1,53 @@
+<section data-ng-controller="PrisController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Ret priser</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Kategori:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="pris.kategori" id="kategori" class="form-control" placeholder="kategori" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="pakke">Pakke:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="pris.pakke" id="name" class="form-control" placeholder="pakke" required>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="control-label" for="pristilbud">Pris klik på tilbud:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="pris.pristilbud" id="kliktilbud" class="form-control" placeholder="pristilbud" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="prismicrosite">Pris microsite:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="pris.prismicrosite" id="prismicrosite" class="form-control" placeholder="pris på klik til microsite" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="prisklikhjemmeside">Pris microsite:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="pris.prisklikhjemmeside" id="prisklikhjemmeside" class="form-control" placeholder="pris på klik til hjemmeside" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="budget">Budget</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="pris.budget" id="name" class="form-control" placeholder="budget">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+        <div data-ng-show="error" class="text-danger">
+          <strong data-ng-bind="error"></strong>
+        </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

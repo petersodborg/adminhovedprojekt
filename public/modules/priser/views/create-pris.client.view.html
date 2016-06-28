@@ -1,0 +1,53 @@
+<section data-ng-controller="PrisController">
+    <div class="page-header">
+        <h1>Tilføj priser</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="kategori">Kategori:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="kategori" id="kategori" class="form-control" placeholder="kategori" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="pakke">Pakke:</label>
+                    <div class="controls">
+                        <textarea data-ng-model="pakke" id="pakke" class="form-control" placeholder="pakke" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="pristilbud">Pris på klik på tilbud:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="pristilbud" id="pristilbud" class="form-control" placeholder="pristilbud" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="prismicrosite">Pris på klik til microsite:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="prismicrosite" id="prismicrosite" class="form-control" placeholder="prismicrosite">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="prisklikhjemmeside">Pris på klik til hjemmeside:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="prisklikhjemmeside" id="prisklikhjemmeside" class="form-control" placeholder="prisklikhjemmeside">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="budget">Budget:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="budget" id="budget" class="form-control" placeholder="budget">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

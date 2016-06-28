@@ -1,0 +1,159 @@
+<section data-ng-controller="OperatorsController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Ny Operatør</h1>
+		</div>
+	<div class="col-md-12">
+		<form class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label" for="operatorNavn">operatørNavn:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="operatorNavn" id="operatorNavn" class="form-control" placeholder="operatorNavn" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="aktiv">Aktiv:</label>
+					<div class="controls">
+						<textarea data-ng-model="aktiv" id="aktiv" class="form-control" placeholder="aktiv" required></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="innaktiv">Innaktiv:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="innaktiv" id="innaktiv" class="form-control" placeholder="innaktiv" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="operaKat">operatørkategori:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="operaKat" id="operaKat" class="form-control" placeholder="operaKat">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="addresse">addresse:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="addresse" id="addresse" class="form-control" placeholder="addresse">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="postnr">Postnr:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="postnr" id="postnr" class="form-control" placeholder="postnr">
+					</div>
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="city">City:</label>
+				<div class="controls">
+					<input type="text" data-ng-model="city" id="city" class="form-control" placeholder="city">
+				</div>
+			</div>
+				<div class="form-group">
+					<label class="control-label" for="PO">PO:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="PO" id="PO" class="form-control" placeholder="PO">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Land:</label>
+					<select class="selectpicker" data-ng-init="find()">
+						<option ng-repeat="opera in operators">{{opera.landeNavn}}</option>
+					</select>
+</div>
+
+				<div class="form-group">
+					<label class="control-label">Region:</label>
+					<select class="selectpicker" data-ng-init="find()">
+						<option ng-repeat="opera in operators">{{opera.Region}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="telefon">Telefon:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="telefon" id="telefon" class="form-control" placeholder="telefon">
+					</div>
+				</div>
+				<div class="form-group">
+
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="email">Email:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="email" id="email" class="form-control" placeholder="email">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="web">Web:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="web" id="web" class="form-control" placeholder="web">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="faktureringsKat">faktureringskategori:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="faktureringsKat" id="faktureringsKat" class="form-control" placeholder="faktureringsKat">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="pakke">Pakke:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="pakke" id="pakke" class="form-control" placeholder="pakke">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="pakkeExpiry">Pakke expiry date:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="pakkeExpiry" id="pakkeExpiry" class="form-control" placeholder="Pakke expiry date">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="budgetMax">Budgetmax:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="budgetMax" id="budgetMax" class="form-control" placeholder="budgetMax">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="priotet">Priotet:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="priotet" id="priotet" class="form-control" placeholder="priotet">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="microSiteID">MicrositeID:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="microSiteID" id="microSiteID" class="form-control" placeholder="microSiteID">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="beskrivelse">Beskrivelse:</label>
+					<div class="controls">
+						<input type="textarea" data-ng-model="beskrivelse" id="beskrivelse" class="form-control" placeholder="beskrivelse">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="engelskBeskrivelse">Engelsk besk.:</label>
+					<div class="controls">
+						<input type="textarea" data-ng-model="engelskBeskrivelse" id="engelskBeskrivelse" class="form-control" placeholder="engelskBeskrivelse">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="logo">Logo:</label>
+					<div class="controls">
+						<input type="image" data-ng-model="logo" id="logo" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="andetBillede">andetBillede:</label>
+					<div class="controls">
+						<input type="image" data-ng-model="andetBillede" id="andetBillede" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

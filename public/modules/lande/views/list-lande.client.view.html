@@ -1,0 +1,50 @@
+<section data-ng-controller="LandController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Lande</h1>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <a href="#!/lande/create" type="button" class="btn btn-info btn-lg pull-right">Tilføj Land</a>
+        <br/>
+
+
+        <tr style="border: none">
+            <td>#</td>
+            <td>Land</td>
+            <td>Region</td>
+
+
+
+        </tr>
+
+        </thead>
+        <tbody>
+
+
+        <tr data-ng-repeat="land in lande">
+        <div class="pull-right" ng-show="authentication.user._id == land.user._id">
+            <td><a class="btn btn-primary" href="/#!/lande/{{land._id}}/edit">ret
+            </a></td>
+
+            <td>{{land.landeNavn}}</td>
+            <td>{{land.Region}}</td>
+
+
+        </tr>
+        <tr>
+            <td>#</td>
+            <td>Navn</td>
+            <td>Region</td>
+
+
+
+        </tr>
+        </tbody>
+    </table>
+    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pull-right"></pagination>
+
+
+    <div class="alert alert-warning text-center" data-ng-if="lande.$resolved && !lande.length">
+        Ingen lande endnu<a href="/#!/lande/create">Opret et</a>?
+    </div>
+</section>

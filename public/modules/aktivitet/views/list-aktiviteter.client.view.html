@@ -1,0 +1,54 @@
+<section data-ng-controller="AktivitetController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Aktiviteter</h1>
+    </div>
+    <form class="form-inline left">
+        <div class="form-group">
+            <label ></label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <a href="#!/aktiviteter/create" type="button" class="btn btn-info btn-lg pull-right">Opret ny aktivitet</a>
+        <br/>
+
+
+        <tr style="border: none">
+            <td>#</td>
+            <td>Navn</td>
+            <td>Kategori</td>
+
+
+
+        </tr>
+
+        </thead>
+        <tbody>
+
+
+        <tr ng-repeat="a in aktiviteter|filter:search">
+            <td><a class="btn btn-primary" href="/#!/aktiviteter/{{a._id}}/edit">ret
+            </a></td>
+
+            <td>{{a.Title}}</td>
+            <td>{{a.TagCategoryID}}</td>
+
+
+        </tr>
+        <tr>
+            <td>#</td>
+            <td>Navn</td>
+            <td>Kategori</td>
+
+
+
+        </tr>
+        </tbody>
+    </table>
+    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pull-right"></pagination>
+
+    <div class="alert alert-warning text-center" data-ng-if="aktiviteter.$resolved && !aktiviteter.length">
+        Ingen aktiviteter endnu<a href="/#!/aktiviteter/create">Opret en</a>?
+    </div>
+</section>

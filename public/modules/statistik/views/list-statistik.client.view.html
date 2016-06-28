@@ -1,0 +1,46 @@
+<section data-ng-controller="statistikController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Samlet månedlig statistik</h1>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <a href="#!/statistik/create" type="button" class="btn btn-info btn-lg pull-right">Tilføj statistik</a>
+        <br/>
+        <br/>
+
+
+        <tr style="border: none">
+            <td>År</td>
+            <td>Måned</td>
+            <td>Antal visninger</td>
+            <td>Antal klik på tilbud</td>
+            <td>Antal klik til microsite</td>
+            <td>Antal klik til hjemmeside</td>
+
+        </tr>
+
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="stat in statistikker">
+
+            <td><a ng-href="/#!/statistik/{{stat._id}}">{{stat.year}}</a></td>
+            <td>{{stat.month}}</td>
+            <td>{{stat.visninger}}</td>
+            <td>{{stat.klik_tilbud}}</td>
+            <td>{{stat.klik_microsite}}</td>
+            <td>{{stat.klik_hjemmeside}}</td>
+
+        </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls
+            max-size="5"
+            direction-links="true"
+            boundary-links="true" >
+    </dir-pagination-controls>
+
+    <div class="alert alert-warning text-center" data-ng-if="operators.$resolved && !operators.length">
+        Ingen operatører endnu<a href="/#!/statistik/create">Opret en</a>?
+    </div>
+</section>

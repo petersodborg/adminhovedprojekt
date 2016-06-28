@@ -1,0 +1,53 @@
+<section data-ng-controller="statistikController">
+	<div class="page-header">
+		<h1>Ny Operatør</h1>
+	</div>
+	<div class="col-md-12">
+		<form class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label" for="year">År:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="year" id="year" class="form-control" placeholder="year" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="month">Måned:</label>
+					<div class="controls">
+						<textarea data-ng-model="month" id="month" class="form-control" placeholder="month" required></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="visninger">visninger:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="visninger" id="visninger" class="form-control" placeholder="visninger" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="klik_tilbud">Klik tilbud:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="klik_tilbud" id="klik_tilbud" class="form-control" placeholder="klik_tilbud">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="klik_microsite">Klik microsite:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="klik_microsite" id="klik_microsite" class="form-control" placeholder="klik_microsite">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="klik_hjemmeside">Klik hjemmeside:</label>
+					<div class="controls">
+						<input type="text" data-ng-model="klik_hjemmeside" id="klik_hjemmeside" class="form-control" placeholder="klik_hjemmeside">
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

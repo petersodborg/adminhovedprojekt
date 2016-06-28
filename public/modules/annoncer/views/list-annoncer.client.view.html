@@ -1,0 +1,53 @@
+<section data-ng-controller="AnnonceController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Annoncer</h1>
+    </div>
+    <form class="form-inline left">
+        <div class="form-group">
+            <label ></label>
+            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+    </form>
+            <a href="#!/annoncer/create" type="button" class="btn btn-info btn-lg pull-right">Opret ny</a>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+        <br/>
+        <br/>
+        <tr style="border: none">
+            <td>#</td>
+            <td>Overskrift</td>
+            <td>Annoncetype</td>
+            <td>Operatør</td>
+            <td>Visninger</td>
+            <td>Klik på tilbud</td>
+            <td>Klik til hjemmeside</td>
+            <td>Klik til microsite</td>
+            <td>Status</td>
+            <td>Godkendt</td>
+        </tr>
+
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="annonce in annoncer">
+            <td><a class="btn btn-primary" href="/#!/annoncer/{{annonce._id}}/edit">ret
+            </a></td>
+            <td>{{annonce.overskrift}}</td>
+            <td>{{annonce.type}}</td>
+            <td>{{stat.klik_tilbud}}</td>
+            <td>{{stat.klik_microsite}}</td>
+            <td>{{stat.klik_hjemmeside}}</td>
+            <td>Klik</td>
+            <td>Klik</td>
+            <td><i class="{{annonce.status | approved}}"></i></td>
+            <td><i class="{{annonce.godkendt | approved}}"></i><br>Godkendt</td>
+
+        </tr>
+        </tbody>
+    </table>
+    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pull-right"></pagination>
+    <div class="alert alert-warning text-center" data-ng-if="operators.$resolved && !operators.length">
+        Ingen operatører endnu<a href="/#!/annoncer/create">Opret en</a>?
+    </div>
+</section>

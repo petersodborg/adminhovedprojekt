@@ -1,0 +1,232 @@
+<section data-ng-controller="AnnonceController" data-ng-init="findOne()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header">
+                <h3>Ret annonce:</h3><h3 data-ng-bind="annonce.overskrift"></h3>
+
+
+            </div>
+            <div class="col-md-4"><!--store kolumme-->
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <p class="lead">Annonce</p>
+
+                        </h3>
+                    </div>
+                    <div class="panel-body"><!--panel body start-->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-right" data-ng-show="authentication.user._id == annoncer.user._id">
+
+
+                                </div>
+
+
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+
+                <strong>Type</strong><br/>
+                <select class="selectpicker" data-ng-init="find()">
+                                    <option ng-repeat="annonce in annoncer">{{annonce.type}}</option>
+                                </select><br/>
+                <div class="form-group">
+                    <label class="control-label" for="overskrift">Intern Overskrift:</label>
+                    <div class="controls">
+                        <textarea data-ng-model="annonce.overskrift" id="overskrift" class="form-control" placeholder="overskrift" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="aktivfra">Aktiv fra:</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="annonce.aktivfra" id="aktivfra" class="form-control" placeholder="aktiv fra" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="aktivTil" data-provide="datepicker">Aktiv til:</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="annonce.aktivtil" id="aktivTil" class="form-control" placeholder="aktiv til">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="thumb">Thumb:</label>
+                    <div class="controls">
+                        <input type="file" data-ng-model="thumb" id="thumb" class="form-control" placeholder="thumb">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="stortImage">Stort billede:</label>
+                    <div class="controls">
+                        <input type="file" data-ng-model="stortImage" id="stortImage" class="form-control" placeholder="Stort billede">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary pull-right" value="Gem">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+
+                            </div>
+                        </div>
+
+                    </div><!--slut store kolumme-->
+                </div><!--slut panel body-->
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <strong>Tilføj billeder</strong>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+<p>Størrelse</p>
+<label class="checkbox-inline"><input type="checkbox" value="">Logo</label>
+<label class="checkbox-inline"><input type="checkbox" value="">Andet billede</label>
+<p>Filnavn</p>
+<input type="file" data-ng-model="stortImage" id="stortImage">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary pull-right" value="Upload">
+                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Måneder
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+<form role="form">
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Januar</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Februar</label>
+    </div>
+    <div class="checkbox disabled">
+      <label><input type="checkbox" value="" disabled>Marts</label>
+    </div>
+    <form role="form">
+    <div class="checkbox">
+      <label><input type="checkbox" value="">April</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Maj</label>
+    </div>
+    <div class="checkbox disabled">
+      <label><input type="checkbox" value="" disabled>Juni</label>
+    </div>
+    <form role="form">
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Juli</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">August</label>
+    </div>
+    <div class="checkbox disabled">
+      <label><input type="checkbox" value="" disabled>September</label>
+    </div>
+<form role="form">
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Oktober</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">November</label>
+    </div>
+    <div class="checkbox disabled">
+      <label><input type="checkbox" value="" disabled>December</label>
+    </div>
+  </form>
+
+                        <a class="btn btn-primary pull-right" type="button" >Gem</a>
+
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+Byer
+                            </h3>
+                    </div>
+                    <div class="panel-body">
+                    <select class="selectpicker" data-ng-init="findOne()" data-ng-model="annonce.newland" id="newland" data-ng-submit="update()">
+                    <option ng-repeat="land in lande">{{land.landeNavn}}</option>
+                    </select>
+                                                        <div class="form-group"  data-ng-submit="update()">
+                   <input type="submit" value="Update" class="btn btn-primary pull-right"></div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Aktiviteter
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                    <select class="selectpicker" data-hidden="true" data-ng-init="find()">
+                    <option ng-repeat="aktivitet in aktiviteter">{{aktivitet.Title}}</option>
+                    </select>
+                    <a class="btn btn-primary pull-right" type="button" >Tilføj aktivitet</a>
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                        Aktivitetsniveauer
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                    <select class="selectpicker" data-ng-init="find()">
+                    <option ng-repeat="aktivitet in aktiviteter">{{aktivitet.TagCategoryID}}</option>
+                    </select>
+                    <a class="btn btn-primary pull-right" type="button" >Tilføj aktivitetsniveau</a>
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Tekster
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <select class="selectpicker" data-ng-init="find()">
+                            <option ng-repeat="annonce in annoncer">{{annonce.tekst}}</option>
+                        </select>
+                        <a class="btn btn-primary pull-right" type="button" >Tilføj indhold</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <a class="btn btn-primary pull-right" data-ng-click="remove();">
+        Slet Annonce
+    </a>
+
+    </div></form>
+</section>

@@ -1,0 +1,104 @@
+<section data-ng-controller="AnnonceController">
+    <div class="page-header">
+        <h1>Ny Operatør</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="type">Annoncetype:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="type" id="type" class="form-control" placeholder="type" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="overskrift">Overskrift:</label>
+                    <div class="controls">
+                        <textarea data-ng-model="overskrift" id="overskrift" class="form-control" placeholder="overskrift" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="aktivFra">Aktiv fra:</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="aktivFra" id="aktivFra" class="form-control" placeholder="aktiv fra" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="aktivTil" data-provide="datepicker">Aktiv til:</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="aktivTil" id="aktivTil" class="form-control" placeholder="aktiv til">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="thumb">Thumb:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="thumb" id="thumb" class="form-control" placeholder="thumb">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="stortImage">Stort billede:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="stortImage" id="stortImage" class="form-control" placeholder="Stort billede">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="months">Måneder:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="months" id="months" class="form-control" placeholder="Måneder">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Land:</label>
+                <select class="selectpicker" data-ng-init="find()" data-ng-model="newland" id="newland">
+                                    <option ng-repeat="land in lande">{{land.landeNavn}}</option>
+                                </select><br/>
+                </div>
+
+                <!--
+                    <select name="singleSelect" ng-model="data.singleSelect">
+                    <option value="option-1">Option 1</option>
+                    <option value="option-2">Option 2</option>
+                    <option value="option-3">Option 3</option>
+
+                    </select><br>-->
+                                <div class="form-group">
+                    <label class="control-label">Aktiviteter:</label>
+                <select class="selectpicker" data-ng-init="find()" data-ng-model="aktiviteter" id="aktiviteter">
+                                    <option ng-repeat="aktivitet in aktiviteter">{{aktivitet.Title}}</option>
+                                </select><br/>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="aktivitetsniveauer">Aktivitetsniveauer:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="aktivitetsniveauer" id="aktivitetsniveauer" class="form-control" placeholder="aktivitetsniveauer">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="tekster">Tekster:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="tekster" id="tekster" class="form-control" placeholder="tekster">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="tekster">Status:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="status" id="status" class="form-control" placeholder="status">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="godkendt">Godkendt:</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="godkendt" id="godkendt" class="form-control" placeholder="godkendt">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

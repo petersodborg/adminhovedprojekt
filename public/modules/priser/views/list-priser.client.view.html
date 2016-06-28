@@ -1,0 +1,64 @@
+<section data-ng-controller="PrisController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Pris indstillinger</h1>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <a href="#!/priser/create" type="button" class="btn btn-info btn-lg pull-right">Tilføj Pris</a>
+        <br/>
+
+
+        <tr style="border: none">
+            <td>#</td>
+            <td>Kategori</td>
+            <td>Pakker</td>
+            <td>Pris på klik på tilbud</td>
+            <td>Pris på klik til microsite</td>
+            <td>Pris på klik til hjemmeside</td>
+            <td>Budget</td>
+
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <div ng-controller="PrisController">
+            <img data-ng-src="{{imageSource}}">
+        </div>
+
+        <tr ng-repeat="pris in priser|filter:search">
+            <td><a class="btn btn-primary" href="/#!/priser/{{pris._id}}/edit">ret
+            </a></td>
+            <a href="#"><img data ng-src="{{imageSource}}"></a>
+            <img ng-src="{{reverse}}">
+            <td>{{pris.kategori}}</td>
+            <td>{{pris.pakke}}</td>
+            <td>{{pris.pristilbud}}</td>
+            <td>{{pris.prismicrosite}}</td>
+            <td>{{pris.prisklikhjemmeside}}</td>
+            <td>{{pris.budget}}</td>
+
+        </tr>
+        <tr>
+            <td>#</td>
+            <td>Kategori</td>
+            <td>Pakke</td>
+            <td>Pris på klik på tilbud</td>
+            <td>Pris på klik til microsite</td>
+            <td>Pris på klik til hjemmeside</td>
+            <td>Budget</td>
+
+
+        </tr>
+        </tbody>
+    </table>
+    <dir-pagination-controls
+            max-size="5"
+            direction-links="true"
+            boundary-links="true" >
+    </dir-pagination-controls>
+
+    <div class="alert alert-warning text-center" data-ng-if="operators.$resolved && !operators.length">
+        Ingen operatører endnu<a href="/#!/operators/create">Opret en</a>?
+    </div>
+</section>

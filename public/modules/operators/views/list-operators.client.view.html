@@ -1,0 +1,56 @@
+<section data-ng-controller="OperatorsController" data-ng-init="find()">
+
+	<div class="page-header">
+
+		<h1>Operatører</h1>
+	</div>
+	<table class="table table-striped table-bordered">
+		<thead>
+	<a href="#!/operators/create" type="button" class="btn btn-info btn-lg pull-right">Tilføj Operatør</a>
+	<br/>
+	<form class="form-inline">
+		<div class="form-group">
+			<label >Search</label>
+			<input type="text" ng-model="search" class="form-control" placeholder="Search">
+		</div>
+	</form>
+
+	<tr style="border: none">
+		<td>#</td>
+		<td>Navn</td>
+		<td>Har aktive annoncer</td>
+		<td>Har innaktive annoncer</td>
+		<td>Operatør kategori</td>
+	</tr>
+
+	</thead>
+	<tbody>
+
+	<tr ng-repeat="operator in operators">
+		<td><a class="btn btn-primary" href="/#!/operators/{{operator._id}}/edit">ret
+		</a></td>
+		<td><a ng-href="/#!/operators/{{operator._id}}">{{operator.operatorNavn}}</a></td>
+		<td><i class="{{operator.aktiv | reverse}}"/></td>
+		<td><i class="{{operator.innaktiv|reverse}}"/></td>
+		<td>{{operator.operaKat}}</td>
+		<td>
+			<a class="btn btn-primary" data-ng-click="remove();">
+				Slet
+			</a></td>
+	</tr>
+	<tr>
+		<td>#</td>
+		<td>Navn</td>
+		<td>Har aktive annoncer</td>
+		<td>Har innaktive annoncer</td>
+		<td>Operatør kategori</td>
+	</tr>
+	</tbody>
+	</table>
+
+	<pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pull-right"></pagination>
+
+	<div class="alert alert-warning text-center" data-ng-if="operators.$resolved && !operators.length">
+		Ingen operatører endnu<a href="/#!/operators/create">Opret en</a>?
+	</div>
+</section>
