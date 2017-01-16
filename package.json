@@ -5,7 +5,7 @@
   "author": "Peter Sodborg Christensen",
   "engines": {
     "node": "0.10.x",
-    "npm": "1.4.x"
+    "npm": "1.4"
   },
   "scripts": {
     "start": "grunt",
